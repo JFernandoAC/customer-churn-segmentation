@@ -20,9 +20,21 @@ from sklearn.preprocessing import FunctionTransformer, StandardScaler
 from xgboost import XGBClassifier
 
 from build_features import FEATURE_COLUMNS, FEATURES_PATH
+from db import get_engine
 
 MODEL_PATH = Path("models/churn_model.joblib")
 TEST_PATH = Path("data/processed/test_set.csv")
+
+# Names shown in the Power BI "Model" page, in the order they are displayed
+MODEL_LABELS = {"logistic_regression": "Logistic regression", "xgboost": "XGBoost"}
+METRIC_LABELS = {
+    "cv_roc_auc": "CV ROC-AUC",
+    "test_roc_auc": "Test ROC-AUC",
+    "test_pr_auc": "Test PR-AUC",
+    "test_precision": "Precision",
+    "test_recall": "Recall",
+    "test_f1": "F1",
+}
 
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
 mlflow.set_experiment("churn-prediction")
@@ -71,6 +83,30 @@ def save_confusion_matrix(model, X_test, y_test, name):
     return path
 
 
+def save_results_for_dashboard(results, best_name, X_test, y_test):
+    """Write both models' metrics and the winner's confusion matrix to Postgres."""
+    rows = []
+    for name, (model, metrics) in results.items():
+        for order, (key, label) in enumerate(METRIC_LABELS.items(), start=1):
+            rows.append({"model": MODEL_LABELS[name], "metric": label, "metric_order": order,
+                         "value": metrics[key], "is_selected": int(name == best_name)})
+
+    best_model = results[best_name][0]
+    predictions = pd.Series(best_model.predict(X_test), index=y_test.index)
+    confusion = pd.DataFrame({
+        "actual": y_test.map({0: "Stayed", 1: "Churned"}),
+        "predicted": predictions.map({0: "Predicted stay", 1: "Predicted churn"}),
+    }).value_counts().rename("customers").reset_index()
+    # Order columns so Power BI shows "stay" before "churn" instead of alphabetical
+    confusion["actual_order"] = confusion["actual"].map({"Stayed": 1, "Churned": 2})
+    confusion["predicted_order"] = confusion["predicted"].map({"Predicted stay": 1, "Predicted churn": 2})
+
+    engine = get_engine()
+    pd.DataFrame(rows).to_sql("model_metrics", engine, if_exists="replace", index=False)
+    confusion.to_sql("confusion_matrix", engine, if_exists="replace", index=False)
+    print("Saved tables model_metrics and confusion_matrix")
+
+
 def main():
     data = pd.read_csv(FEATURES_PATH, index_col="customer_id")
     X = data[FEATURE_COLUMNS].astype(float)  # the API also receives floats
@@ -111,6 +147,7 @@ def main():
     MODEL_PATH.parent.mkdir(exist_ok=True)
     joblib.dump(results[best_name][0], MODEL_PATH)
     print(f"Best model: {best_name}. Saved to {MODEL_PATH}")
+    save_results_for_dashboard(results, best_name, X_test, y_test)
 
 
 if __name__ == "__main__":

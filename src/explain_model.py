@@ -1,10 +1,12 @@
 """Explain the churn model with SHAP: which features push a customer to churn."""
 import joblib
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import shap
 
 from build_features import FEATURE_COLUMNS
+from db import get_engine
 from train_model import MODEL_PATH, TEST_PATH
 
 FIGURES = "reports/figures"
@@ -40,6 +42,14 @@ def main():
     save_current_figure("shap_waterfall_one_customer.png")
 
     print(f"Saved SHAP plots to {FIGURES}/")
+
+    # Same numbers as the bar plot, saved for the Power BI "Model" page
+    importance = pd.DataFrame({
+        "feature": FEATURE_COLUMNS,
+        "mean_abs_shap": np.abs(shap_values.values).mean(axis=0),
+    })
+    importance.to_sql("feature_importance", get_engine(), if_exists="replace", index=False)
+    print("Saved table feature_importance")
 
 
 if __name__ == "__main__":
