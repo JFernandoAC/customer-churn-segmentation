@@ -1,0 +1,84 @@
+table customer_segments
+	lineageTag: 25699d89-a5bd-4877-b9f6-fcc100e4cb76
+
+	measure Customers = COUNTROWS(customer_segments)
+		formatString: #,0
+		lineageTag: 89bb14b9-5700-4d2d-b208-a267b52204e2
+
+	measure Revenue = SUM(customer_segments[monetary])
+		formatString: "£"#,0
+		lineageTag: f5dcbaf5-92ea-460e-b4c2-73b708f6e1d7
+
+	measure 'Revenue share' = DIVIDE([Revenue], CALCULATE([Revenue], ALL(customer_segments)))
+		formatString: 0.0%
+		lineageTag: 030a2610-1965-4627-9b41-2f134e7434e0
+
+	measure 'Customer share' = DIVIDE([Customers], CALCULATE([Customers], ALL(customer_segments)))
+		formatString: 0.0%
+		lineageTag: 4fe6b115-63f0-4bef-8377-9228c2a2c910
+
+	measure 'Avg days since last order' = AVERAGE(customer_segments[recency_days])
+		formatString: #,0
+		lineageTag: 650aea49-2bb3-4e7c-9729-fcd682a54db3
+
+	measure 'Avg orders' = AVERAGE(customer_segments[frequency])
+		formatString: #,0.0
+		lineageTag: 79d0869a-e063-4041-b678-494ec3970555
+
+	measure 'Avg spend' = AVERAGE(customer_segments[monetary])
+		formatString: "£"#,0
+		lineageTag: e5392128-ce57-4792-b648-d971f9747b1d
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 62b40a12-152e-425b-a1f4-4512c0ae3002
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column recency_days
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4763a6ba-533c-4dfd-add4-75981c718fd4
+		summarizeBy: none
+		sourceColumn: recency_days
+
+	column frequency
+		dataType: int64
+		formatString: #,0
+		lineageTag: 6aff2e0e-69db-4c27-9221-4514bbb7162d
+		summarizeBy: none
+		sourceColumn: frequency
+
+	column monetary
+		dataType: double
+		formatString: "£"#,0.00
+		lineageTag: 24e55e51-7416-4f1b-af37-50f090366cbd
+		summarizeBy: sum
+		sourceColumn: monetary
+
+	column segment
+		dataType: string
+		lineageTag: 46694aa2-a634-43c0-9c0a-e87676e363f7
+		summarizeBy: none
+		sourceColumn: segment
+		sortByColumn: segment_order
+
+	column segment_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d5121f0c-5192-4fd1-81a9-a7f7f3a7f1f7
+		summarizeBy: none
+		sourceColumn: segment_order
+
+	partition customer_segments = m
+		mode: import
+		source =
+				let
+					Source = PostgreSQL.Database("localhost:5433", "retail"),
+					Data = Source{[Schema = "public", Item = "customer_segments"]}[Data],
+					WithSegmentOrder = Table.AddColumn(Data, "segment_order", each List.PositionOf({"Champions", "Promising", "At risk", "Lost"}, [segment]) + 1, Int64.Type)
+				in
+					WithSegmentOrder
+

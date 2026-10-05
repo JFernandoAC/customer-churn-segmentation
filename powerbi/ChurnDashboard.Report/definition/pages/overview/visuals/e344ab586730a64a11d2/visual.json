@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "e344ab586730a64a11d2",
+  "position": {
+    "x": 643,
+    "y": 57,
+    "z": 4000,
+    "height": 128,
+    "width": 309,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "Avg spend"
+                }
+              },
+              "queryRef": "customer_segments.Avg spend",
+              "nativeQueryRef": "Avg spend"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Avg spend per customer'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cb19415bab57b73e8764",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "Avg spend"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "56f57bcbc9f37e4ef810",
+  "position": {
+    "x": 15,
+    "y": 57,
+    "z": 2000,
+    "height": 128,
+    "width": 309,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "High risk customers"
+                }
+              },
+              "queryRef": "customer_scores.High risk customers",
+              "nativeQueryRef": "High risk customers"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'High risk customers (≥ 70%)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9066d4bb4392e7b992de",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "High risk customers"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

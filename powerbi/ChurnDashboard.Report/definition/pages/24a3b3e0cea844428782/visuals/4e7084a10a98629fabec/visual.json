@@ -1,0 +1,293 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "4e7084a10a98629fabec",
+  "position": {
+    "x": 15,
+    "y": 190,
+    "z": 5000,
+    "height": 524,
+    "width": 1250,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "customer_scores.customer_id",
+              "nativeQueryRef": "customer_id",
+              "displayName": "Customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "customer_scores.segment",
+              "nativeQueryRef": "segment",
+              "displayName": "Segment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "churn_probability"
+                }
+              },
+              "queryRef": "customer_scores.churn_probability",
+              "nativeQueryRef": "churn_probability",
+              "displayName": "Churn probability"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "recency_days"
+                }
+              },
+              "queryRef": "customer_scores.recency_days",
+              "nativeQueryRef": "recency_days",
+              "displayName": "Days since last order"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "frequency"
+                }
+              },
+              "queryRef": "customer_scores.frequency",
+              "nativeQueryRef": "frequency",
+              "displayName": "Orders"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "monetary"
+                }
+              },
+              "queryRef": "customer_scores.monetary",
+              "nativeQueryRef": "monetary",
+              "displayName": "Total spend"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "orders_last_90d"
+                }
+              },
+              "queryRef": "customer_scores.orders_last_90d",
+              "nativeQueryRef": "orders_last_90d",
+              "displayName": "Orders last 90 days"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "distinct_products"
+                }
+              },
+              "queryRef": "customer_scores.distinct_products",
+              "nativeQueryRef": "distinct_products",
+              "displayName": "Distinct products"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "customer_scores"
+                  }
+                },
+                "Property": "monetary"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'High-risk customers sorted by total spend'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ac25e97968e3d1429a91",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "customer_id"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "02094fc6f9a658ca86e8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "segment"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c3c3ed92c0337bc4c587",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "churn_probability"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a5f70c5f1569aac65190",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "recency_days"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "893e8fe8cdfd10fad546",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "frequency"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "16f14bbf72800cf4f00c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "monetary"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9828269b328a0a080890",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "orders_last_90d"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "ab303e94b17a62b1a547",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "distinct_products"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

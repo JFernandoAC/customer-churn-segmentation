@@ -1,0 +1,143 @@
+table customer_scores
+	lineageTag: 9d3ed107-73e1-416a-9704-79334a169fdf
+
+	measure 'Customers scored' = COUNTROWS(customer_scores)
+		formatString: #,0
+		lineageTag: ce77edfa-9295-47b6-89b4-b4d76da73026
+
+	measure 'High risk customers' = CALCULATE([Customers scored], customer_scores[risk_level] = "High")
+		formatString: #,0
+		lineageTag: d8d5cd05-c2b2-4fc7-8ddf-63a111b8b128
+
+	measure '% high risk' = DIVIDE([High risk customers], [Customers scored])
+		formatString: 0.0%
+		lineageTag: bc6765cc-c4c6-48a1-84c9-16a49d7ae06b
+
+	measure 'Revenue at risk' = CALCULATE(SUM(customer_scores[monetary]), customer_scores[risk_level] = "High")
+		formatString: "£"#,0
+		lineageTag: b05e5cfd-66b3-46e1-8c99-75abd6993add
+
+	measure 'Avg churn probability' = AVERAGE(customer_scores[churn_probability])
+		formatString: 0.0%
+		lineageTag: d56156f4-c2c1-4f4c-8a2e-9e5e5f654e13
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b994afdf-033b-4f35-9a94-4135fedbad01
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column recency_days
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8a848132-cef9-49c6-ab5b-c2193fd3a4c9
+		summarizeBy: none
+		sourceColumn: recency_days
+
+	column frequency
+		dataType: int64
+		formatString: #,0
+		lineageTag: eeb9916c-d457-4c9f-afe9-819bf79efc6a
+		summarizeBy: none
+		sourceColumn: frequency
+
+	column monetary
+		dataType: double
+		formatString: "£"#,0.00
+		lineageTag: fe6a3dc5-26c5-44e9-b019-eb7ffe7131cc
+		summarizeBy: sum
+		sourceColumn: monetary
+
+	column avg_order_value
+		dataType: double
+		formatString: "£"#,0.00
+		lineageTag: 030ce14b-e7b9-48bb-ba37-f1fc3b47ede9
+		summarizeBy: none
+		sourceColumn: avg_order_value
+
+	column tenure_days
+		dataType: int64
+		formatString: #,0
+		lineageTag: 8fe8ecaa-f911-4984-9520-53aa929d5540
+		summarizeBy: none
+		sourceColumn: tenure_days
+
+	column distinct_products
+		dataType: int64
+		formatString: #,0
+		lineageTag: fbd10993-a14a-49c4-8163-2cb729006ee4
+		summarizeBy: none
+		sourceColumn: distinct_products
+
+	column orders_last_90d
+		dataType: double
+		formatString: #,0
+		lineageTag: f2de8ef9-9e17-4091-9e84-86446b0d65a3
+		summarizeBy: none
+		sourceColumn: orders_last_90d
+
+	column cancel_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 75bbcec3-3013-4f57-859b-12f95e15399f
+		summarizeBy: none
+		sourceColumn: cancel_rate
+
+	column is_uk
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f264b80-7658-441a-9f92-d116cc51cdfa
+		summarizeBy: none
+		sourceColumn: is_uk
+
+	column churn_probability
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 768f04f3-8748-4c77-9ac9-1608e97a1ce4
+		summarizeBy: none
+		sourceColumn: churn_probability
+
+	column risk_level
+		dataType: string
+		lineageTag: 5111025e-ba3e-4c4e-ac4f-d7a65adba2a3
+		summarizeBy: none
+		sourceColumn: risk_level
+		sortByColumn: risk_order
+
+	column segment
+		dataType: string
+		lineageTag: 14c1ca4a-eae4-412f-8162-4b154c6d6843
+		summarizeBy: none
+		sourceColumn: segment
+		sortByColumn: segment_order
+
+	column risk_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6df4600a-b9d7-4856-813b-b419d170b690
+		summarizeBy: none
+		sourceColumn: risk_order
+
+	column segment_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6af92663-d7e7-4ce2-a5f8-fae0ea32ddc0
+		summarizeBy: none
+		sourceColumn: segment_order
+
+	partition customer_scores = m
+		mode: import
+		source =
+				let
+					Source = PostgreSQL.Database("localhost:5433", "retail"),
+					Data = Source{[Schema = "public", Item = "customer_scores"]}[Data],
+					WithSegmentOrder = Table.AddColumn(Data, "segment_order", each List.PositionOf({"Champions", "Promising", "At risk", "Lost"}, [segment]) + 1, Int64.Type),
+					WithRiskOrder = Table.AddColumn(WithSegmentOrder, "risk_order", each List.PositionOf({"High", "Medium", "Low"}, [risk_level]) + 1, Int64.Type)
+				in
+					WithRiskOrder
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,212 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "d6bbb70af238f21b58c4",
+  "position": {
+    "x": 643,
+    "y": 190,
+    "z": 7000,
+    "height": 524,
+    "width": 622,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "segment"
+                }
+              },
+              "queryRef": "customer_segments.segment",
+              "nativeQueryRef": "segment",
+              "displayName": "Segment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "Customers"
+                }
+              },
+              "queryRef": "customer_segments.Customers",
+              "nativeQueryRef": "Customers"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "Avg days since last order"
+                }
+              },
+              "queryRef": "customer_segments.Avg days since last order",
+              "nativeQueryRef": "Avg days since last order"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "Avg orders"
+                }
+              },
+              "queryRef": "customer_segments.Avg orders",
+              "nativeQueryRef": "Avg orders"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "Avg spend"
+                }
+              },
+              "queryRef": "customer_segments.Avg spend",
+              "nativeQueryRef": "Avg spend"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "Revenue share"
+                }
+              },
+              "queryRef": "customer_segments.Revenue share",
+              "nativeQueryRef": "Revenue share"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segment profile'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a1cdd92653d80de08e3f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "segment"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f4b9a0f4a71a2893f4ad",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "Customers"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2ceec155f1881dd58a6d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "Avg days since last order"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bbad1d8319f194c14a74",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "Avg orders"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "af126176a199cd0c6f7a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "Avg spend"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "61b691e1b1b52477d397",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "Revenue share"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
