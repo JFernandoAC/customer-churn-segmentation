@@ -1,0 +1,16 @@
+pandas
+openpyxl
+sqlalchemy
+psycopg[binary]
+python-dotenv
+scikit-learn
+xgboost
+shap
+mlflow
+matplotlib
+seaborn
+jupyter
+fastapi
+uvicorn
+pytest
+requests
