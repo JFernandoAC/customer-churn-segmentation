@@ -53,12 +53,37 @@ table model_metrics
 		summarizeBy: none
 		sourceColumn: is_selected
 
+	column model_es
+		dataType: string
+		lineageTag: 6d2dc3b3-a90c-47cf-97cf-73efb6c5c8cf
+		summarizeBy: none
+		sourceColumn: model_es
+
+	column metric_es
+		dataType: string
+		lineageTag: 641726f2-7359-4de0-b9c0-8a0018d2ffdf
+		summarizeBy: none
+		sourceColumn: metric_es
+		sortByColumn: metric_order
+
 	partition model_metrics = m
 		mode: import
 		source =
 				let
 					Source = PostgreSQL.Database("localhost:5433", "retail"),
-					Data = Source{[Schema = "public", Item = "model_metrics"]}[Data]
+					Data = Source{[Schema = "public", Item = "model_metrics"]}[Data],
+					// Spanish labels for the Spanish report (ChurnDashboardES)
+					ModelEs = [#"Logistic regression" = "Regresión logística", XGBoost = "XGBoost"],
+					MetricEs = [
+						#"CV ROC-AUC" = "ROC-AUC (CV)",
+						#"Test ROC-AUC" = "ROC-AUC (prueba)",
+						#"Test PR-AUC" = "PR-AUC (prueba)",
+						Precision = "Precisión",
+						Recall = "Recall",
+						F1 = "F1"
+					],
+					WithModelEs = Table.AddColumn(Data, "model_es", each Record.FieldOrDefault(ModelEs, [model], [model]), type text),
+					WithMetricEs = Table.AddColumn(WithModelEs, "metric_es", each Record.FieldOrDefault(MetricEs, [metric], [metric]), type text)
 				in
-					Data
+					WithMetricEs
 

@@ -12,19 +12,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "segment"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Segment": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "customer_scores.segment": {
 			      "Definition": {
@@ -33,19 +21,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "segment"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Segment": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "customer_scores.risk_level": {
 			      "Definition": {
@@ -54,19 +30,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "risk_level"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Risk level": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "customer_scores.customer_id": {
 			      "Definition": {
@@ -78,7 +42,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Customer": {
+			          "Cliente": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -99,7 +63,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Churn probability": {
+			          "Probabilidad de churn": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -120,7 +84,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Days since last order": {
+			          "Días sin comprar": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -141,7 +105,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Orders": {
+			          "Pedidos": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -162,7 +126,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Total spend": {
+			          "Gasto total": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -183,7 +147,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Orders last 90 days": {
+			          "Pedidos 90 días": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -204,7 +168,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Distinct products": {
+			          "Productos distintos": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -222,19 +186,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "metric"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Metric": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "model_metrics.model": {
 			      "Definition": {
@@ -243,19 +195,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "model"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Model": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "confusion_matrix.actual": {
 			      "Definition": {
@@ -264,19 +204,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "actual"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Actual": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "confusion_matrix.predicted": {
 			      "Definition": {
@@ -285,19 +213,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "predicted"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Predicted": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "feature_importance.feature": {
 			      "Definition": {
@@ -318,7 +234,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Churn probability band": {
+			          "Banda de probabilidad de churn": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -339,7 +255,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Avg order value": {
+			          "Ticket promedio": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -360,7 +276,7 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Days as customer": {
+			          "Días como cliente": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -378,10 +294,544 @@ cultureInfo en-US
 			          "ConceptualProperty": "feature_label"
 			        }
 			      },
+			      "State": "Generated"
+			    },
+			    "customer_segments.revenue": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "Revenue"
+			        }
+			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Feature": {
+			          "Ingresos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_segments.avg_orders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "Avg orders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Pedidos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_segments.segment_es": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "segment_es"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Segmento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_segments.customer_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "Customer share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% de clientes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_segments.revenue_share": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "Revenue share"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% de ingresos": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_segments.customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "Customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Clientes": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_segments.avg_days_since_last_order": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "Avg days since last order"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Días sin comprar": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_segments.avg_spend": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "Avg spend"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gasto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_segments.customer_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_segments",
+			          "ConceptualProperty": "customer_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Cliente": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.segment_es": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "segment_es"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Segmento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.avg_churn_probability": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "Avg churn probability"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Probabilidad promedio de churn": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.customers_scored": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "Customers scored"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Clientes evaluados": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.high_risk_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "High risk customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Clientes de riesgo alto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.high_risk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "% high risk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% en riesgo alto": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.revenue_at_risk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "Revenue at risk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Gasto histórico en riesgo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.risk_level_es": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "risk_level_es"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Nivel de riesgo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "model_metrics.selected_precision": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "model_metrics",
+			          "ConceptualProperty": "Selected precision"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Precisión": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "model_metrics.cv_rocauc_gain_over_baseline": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "model_metrics",
+			          "ConceptualProperty": "CV ROC-AUC gain over baseline"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Mejora en ROC-AUC (CV)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "model_metrics.selected_recall": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "model_metrics",
+			          "ConceptualProperty": "Selected recall"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Recall": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "model_metrics.metric_es": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "model_metrics",
+			          "ConceptualProperty": "metric_es"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Métrica": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "model_metrics.model_es": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "model_metrics",
+			          "ConceptualProperty": "model_es"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Modelo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "model_metrics.selected_test_rocauc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "model_metrics",
+			          "ConceptualProperty": "Selected test ROC-AUC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ROC-AUC (prueba)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "confusion_matrix.predicted_es": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "confusion_matrix",
+			          "ConceptualProperty": "predicted_es"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Predicción": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "confusion_matrix.actual_es": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "confusion_matrix",
+			          "ConceptualProperty": "actual_es"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Real": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "confusion_matrix.test_customers": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "confusion_matrix",
+			          "ConceptualProperty": "Test customers"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Clientes de prueba": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "feature_importance.feature_label_es": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "feature_importance",
+			          "ConceptualProperty": "feature_label_es"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Variable": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

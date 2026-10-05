@@ -42,12 +42,31 @@ table confusion_matrix
 		summarizeBy: none
 		sourceColumn: predicted_order
 
+	column actual_es
+		dataType: string
+		lineageTag: 1420f448-6f8a-4546-b4af-406da16a4d46
+		summarizeBy: none
+		sourceColumn: actual_es
+		sortByColumn: actual_order
+
+	column predicted_es
+		dataType: string
+		lineageTag: 1ab11b78-69aa-4338-90f6-5115cf76bec1
+		summarizeBy: none
+		sourceColumn: predicted_es
+		sortByColumn: predicted_order
+
 	partition confusion_matrix = m
 		mode: import
 		source =
 				let
 					Source = PostgreSQL.Database("localhost:5433", "retail"),
-					Data = Source{[Schema = "public", Item = "confusion_matrix"]}[Data]
+					Data = Source{[Schema = "public", Item = "confusion_matrix"]}[Data],
+					// Spanish labels for the Spanish report (ChurnDashboardES)
+					ActualEs = [Stayed = "Se quedó", Churned = "Se fue"],
+					PredictedEs = [#"Predicted stay" = "Predijo: se queda", #"Predicted churn" = "Predijo: se va"],
+					WithActualEs = Table.AddColumn(Data, "actual_es", each Record.FieldOrDefault(ActualEs, [actual], [actual]), type text),
+					WithPredictedEs = Table.AddColumn(WithActualEs, "predicted_es", each Record.FieldOrDefault(PredictedEs, [predicted], [predicted]), type text)
 				in
-					Data
+					WithPredictedEs
 

@@ -135,6 +135,20 @@ table customer_scores
 		summarizeBy: none
 		sourceColumn: probability_band
 
+	column segment_es
+		dataType: string
+		lineageTag: b39622c6-9a40-4e9a-99d3-7446cc27e570
+		summarizeBy: none
+		sourceColumn: segment_es
+		sortByColumn: segment_order
+
+	column risk_level_es
+		dataType: string
+		lineageTag: d88f5ce7-fda3-42e3-8436-ec7f20e9cd7e
+		summarizeBy: none
+		sourceColumn: risk_level_es
+		sortByColumn: risk_order
+
 	partition customer_scores = m
 		mode: import
 		source =
@@ -144,9 +158,14 @@ table customer_scores
 					WithSegmentOrder = Table.AddColumn(Data, "segment_order", each List.PositionOf({"Champions", "Promising", "At risk", "Lost"}, [segment]) + 1, Int64.Type),
 					WithRiskOrder = Table.AddColumn(WithSegmentOrder, "risk_order", each List.PositionOf({"High", "Medium", "Low"}, [risk_level]) + 1, Int64.Type),
 					// 10-point bands for the histogram: 0.734 -> 0.7 (shown as 70%)
-					WithBand = Table.AddColumn(WithRiskOrder, "probability_band", each Number.RoundDown([churn_probability] * 10) / 10, type number)
+					WithBand = Table.AddColumn(WithRiskOrder, "probability_band", each Number.RoundDown([churn_probability] * 10) / 10, type number),
+					// Spanish labels for the Spanish report (ChurnDashboardES)
+					SegmentEs = [Champions = "Campeones", Promising = "Prometedores", #"At risk" = "En riesgo", Lost = "Perdidos"],
+					RiskEs = [High = "Alto", Medium = "Medio", Low = "Bajo"],
+					WithSegmentEs = Table.AddColumn(WithBand, "segment_es", each Record.FieldOrDefault(SegmentEs, [segment], [segment]), type text),
+					WithRiskEs = Table.AddColumn(WithSegmentEs, "risk_level_es", each Record.FieldOrDefault(RiskEs, [risk_level], [risk_level]), type text)
 				in
-					WithBand
+					WithRiskEs
 
 	annotation PBI_ResultType = Table
 

@@ -20,6 +20,12 @@ table feature_importance
 		summarizeBy: none
 		sourceColumn: feature_label
 
+	column feature_label_es
+		dataType: string
+		lineageTag: c786b372-e5fb-4c60-8baa-9b4216267db7
+		summarizeBy: none
+		sourceColumn: feature_label_es
+
 	partition feature_importance = m
 		mode: import
 		source =
@@ -38,7 +44,20 @@ table feature_importance
 						cancel_rate = "Cancellation rate",
 						is_uk = "Based in the UK"
 					],
-					WithLabel = Table.AddColumn(Data, "feature_label", each Record.FieldOrDefault(Labels, [feature], [feature]), type text)
+					WithLabel = Table.AddColumn(Data, "feature_label", each Record.FieldOrDefault(Labels, [feature], [feature]), type text),
+					// Spanish labels for the Spanish report (ChurnDashboardES)
+					LabelsEs = [
+						recency_days = "Días sin comprar",
+						frequency = "Pedidos",
+						monetary = "Gasto total",
+						avg_order_value = "Ticket promedio",
+						tenure_days = "Días como cliente",
+						distinct_products = "Productos distintos",
+						orders_last_90d = "Pedidos 90 días",
+						cancel_rate = "Tasa de cancelación",
+						is_uk = "Está en Reino Unido"
+					],
+					WithLabelEs = Table.AddColumn(WithLabel, "feature_label_es", each Record.FieldOrDefault(LabelsEs, [feature], [feature]), type text)
 				in
-					WithLabel
+					WithLabelEs
 

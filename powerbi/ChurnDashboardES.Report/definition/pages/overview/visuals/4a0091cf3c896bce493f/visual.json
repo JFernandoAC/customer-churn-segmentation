@@ -1,0 +1,153 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "4a0091cf3c896bce493f",
+  "position": {
+    "x": 15,
+    "y": 190,
+    "z": 6000,
+    "height": 524,
+    "width": 623,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "segment_es"
+                }
+              },
+              "queryRef": "customer_segments.segment_es",
+              "nativeQueryRef": "segment_es",
+              "active": true,
+              "displayName": "Segmento"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "Customer share"
+                }
+              },
+              "queryRef": "customer_segments.Customer share",
+              "nativeQueryRef": "Customer share",
+              "displayName": "% de clientes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_segments"
+                    }
+                  },
+                  "Property": "Revenue share"
+                }
+              },
+              "queryRef": "customer_segments.Revenue share",
+              "nativeQueryRef": "Revenue share",
+              "displayName": "% de ingresos"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "customer_segments"
+                  }
+                },
+                "Property": "segment_es"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'% de clientes vs % de ingresos'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "dd8970a2c3b464300f60",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "segment_es"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c1272c834ff5623b6077",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "Customer share"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6418bcdb6c24279a2e7e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_segments"
+              }
+            },
+            "Property": "Revenue share"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

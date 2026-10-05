@@ -63,6 +63,9 @@ More pages: [Segments](reports/figures/powerbi_segments.png) ·
 [Action list](reports/figures/powerbi_action_list.png) ·
 [Model](reports/figures/powerbi_model.png)
 
+The same dashboard also exists in Spanish (`powerbi/ChurnDashboardES.pbip`, see
+[README.es.md](README.es.md)).
+
 ---
 
 ## Technical details
@@ -91,6 +94,7 @@ UCI Excel ─► CSV ─► PostgreSQL (Docker) ─► SQL cleaning view
 | 9 | `src/score_customers.py` | Scores current customers into Postgres for Power BI |
 | 10 | `api/` | FastAPI service with the trained model |
 | 11 | `powerbi/ChurnDashboard.pbip` | Power BI dashboard (4 pages) reading from Postgres |
+| 12 | `powerbi/make_spanish_report.py` | Builds the Spanish copy of the report (`ChurnDashboardES.pbip`) |
 
 ### Churn definition
 
@@ -127,6 +131,9 @@ knowing: most of the signal is in recency and frequency.
 - **Power BI as a PBIP project** — the report and its model (TMDL measures, PBIR
   visuals) are plain text files, so the dashboard is versioned and reviewed in git
   like the code.
+- **Spanish report generated from the English one** — both reports share one
+  semantic model; Spanish labels are extra columns built in Power Query, and a
+  script copies the English report and translates it, so the two never drift.
 
 ### Limitations
 
@@ -164,6 +171,8 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db   # http://localhost:5000
 
 Dashboard: open `powerbi/ChurnDashboard.pbip` in Power BI Desktop and click
 *Refresh* (Postgres user and password: `retail` / `retail`, from `.env`).
+Spanish version: `powerbi/ChurnDashboardES.pbip`. After changing the English
+report, rebuild it with `python powerbi/make_spanish_report.py` (Desktop closed).
 
 Example request:
 

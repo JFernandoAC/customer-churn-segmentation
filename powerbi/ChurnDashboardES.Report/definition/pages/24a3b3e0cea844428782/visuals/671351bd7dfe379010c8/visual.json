@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "671351bd7dfe379010c8",
+  "position": {
+    "x": 329,
+    "y": 57,
+    "z": 3000,
+    "height": 128,
+    "width": 309,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "Revenue at risk"
+                }
+              },
+              "queryRef": "customer_scores.Revenue at risk",
+              "nativeQueryRef": "Revenue at risk",
+              "displayName": "Gasto histórico en riesgo"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Su gasto histórico'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "2cd1cb3ef0fc1507110d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "Revenue at risk"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

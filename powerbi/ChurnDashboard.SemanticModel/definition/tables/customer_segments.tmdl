@@ -72,13 +72,23 @@ table customer_segments
 		summarizeBy: none
 		sourceColumn: segment_order
 
+	column segment_es
+		dataType: string
+		lineageTag: ab7aa0f7-b913-456c-a5c1-7c91b7f13786
+		summarizeBy: none
+		sourceColumn: segment_es
+		sortByColumn: segment_order
+
 	partition customer_segments = m
 		mode: import
 		source =
 				let
 					Source = PostgreSQL.Database("localhost:5433", "retail"),
 					Data = Source{[Schema = "public", Item = "customer_segments"]}[Data],
-					WithSegmentOrder = Table.AddColumn(Data, "segment_order", each List.PositionOf({"Champions", "Promising", "At risk", "Lost"}, [segment]) + 1, Int64.Type)
+					WithSegmentOrder = Table.AddColumn(Data, "segment_order", each List.PositionOf({"Champions", "Promising", "At risk", "Lost"}, [segment]) + 1, Int64.Type),
+					// Spanish labels for the Spanish report (ChurnDashboardES)
+					SegmentEs = [Champions = "Campeones", Promising = "Prometedores", #"At risk" = "En riesgo", Lost = "Perdidos"],
+					WithSegmentEs = Table.AddColumn(WithSegmentOrder, "segment_es", each Record.FieldOrDefault(SegmentEs, [segment], [segment]), type text)
 				in
-					WithSegmentOrder
+					WithSegmentEs
 

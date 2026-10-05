@@ -59,11 +59,15 @@ Un reporte de Power BI de cuatro páginas lleva esto al negocio: quiénes son lo
 clientes, quién está en riesgo, una lista de acción con los clientes de riesgo
 alto ordenados por cuánto valen y qué tan bueno es el modelo.
 
-![Página de riesgo de abandono](reports/figures/powerbi_churn_risk.png)
+![Página de riesgo de abandono](reports/figures/powerbi_es_churn_risk.png)
 
-Más páginas: [Segmentos](reports/figures/powerbi_segments.png) ·
-[Lista de acción](reports/figures/powerbi_action_list.png) ·
-[Modelo](reports/figures/powerbi_model.png)
+Más páginas: [Segmentos](reports/figures/powerbi_es_segments.png) ·
+[Lista de acción](reports/figures/powerbi_es_action_list.png) ·
+[Modelo](reports/figures/powerbi_es_model.png)
+
+Estas capturas son de la versión en español (`powerbi/ChurnDashboardES.pbip`);
+el mismo dashboard existe en inglés (`powerbi/ChurnDashboard.pbip`, ver
+[README.md](README.md)).
 
 ---
 
@@ -93,6 +97,7 @@ Excel de UCI ─► CSV ─► PostgreSQL (Docker) ─► vista SQL de limpieza
 | 9 | `src/score_customers.py` | Califica a los clientes actuales en Postgres para Power BI |
 | 10 | `api/` | Servicio FastAPI con el modelo entrenado |
 | 11 | `powerbi/ChurnDashboard.pbip` | Dashboard de Power BI (4 páginas) que lee de Postgres |
+| 12 | `powerbi/make_spanish_report.py` | Genera la copia en español del reporte (`ChurnDashboardES.pbip`) |
 
 ### Definición de churn
 
@@ -129,6 +134,10 @@ cual vale la pena saber: casi toda la señal está en la recencia y la frecuenci
 - **Power BI como proyecto PBIP** — el reporte y su modelo (medidas en TMDL,
   visuales en PBIR) son archivos de texto, así que el dashboard se versiona y se
   revisa en git como el código.
+- **Reporte en español generado a partir del de inglés** — los dos reportes
+  comparten un solo modelo semántico; las etiquetas en español son columnas extra
+  hechas en Power Query, y un script copia el reporte en inglés y lo traduce, así
+  nunca se desincronizan.
 
 ### Limitaciones
 
@@ -166,6 +175,8 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db   # http://localhost:5000
 
 Dashboard: abre `powerbi/ChurnDashboard.pbip` en Power BI Desktop y presiona
 *Actualizar* (usuario y contraseña de Postgres: `retail` / `retail`, del `.env`).
+Versión en español: `powerbi/ChurnDashboardES.pbip`. Si cambias el reporte en
+inglés, regenéralo con `python powerbi/make_spanish_report.py` (con Desktop cerrado).
 
 Ejemplo de petición:
 

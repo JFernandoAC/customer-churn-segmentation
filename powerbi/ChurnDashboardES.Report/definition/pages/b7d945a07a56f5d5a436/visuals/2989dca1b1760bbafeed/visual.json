@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "2989dca1b1760bbafeed",
+  "position": {
+    "x": 329,
+    "y": 57,
+    "z": 3000,
+    "height": 128,
+    "width": 309,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "model_metrics"
+                    }
+                  },
+                  "Property": "CV ROC-AUC gain over baseline"
+                }
+              },
+              "queryRef": "model_metrics.CV ROC-AUC gain over baseline",
+              "nativeQueryRef": "CV ROC-AUC gain over baseline",
+              "displayName": "Mejora en ROC-AUC (CV)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Mejora de ROC-AUC (CV) vs reg. logística'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "cb011afcd699710a52f9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "model_metrics"
+              }
+            },
+            "Property": "CV ROC-AUC gain over baseline"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
