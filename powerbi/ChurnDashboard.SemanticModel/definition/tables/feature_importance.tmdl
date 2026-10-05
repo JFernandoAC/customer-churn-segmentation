@@ -14,12 +14,31 @@ table feature_importance
 		summarizeBy: sum
 		sourceColumn: mean_abs_shap
 
+	column feature_label
+		dataType: string
+		lineageTag: 557322b0-1032-4923-9bfe-1b1c7a4ef01e
+		summarizeBy: none
+		sourceColumn: feature_label
+
 	partition feature_importance = m
 		mode: import
 		source =
 				let
 					Source = PostgreSQL.Database("localhost:5433", "retail"),
-					Data = Source{[Schema = "public", Item = "feature_importance"]}[Data]
+					Data = Source{[Schema = "public", Item = "feature_importance"]}[Data],
+					// Same names the Action list uses, so the business reads one vocabulary
+					Labels = [
+						recency_days = "Days since last order",
+						frequency = "Orders",
+						monetary = "Total spend",
+						avg_order_value = "Avg order value",
+						tenure_days = "Days as customer",
+						distinct_products = "Distinct products",
+						orders_last_90d = "Orders last 90 days",
+						cancel_rate = "Cancellation rate",
+						is_uk = "Based in the UK"
+					],
+					WithLabel = Table.AddColumn(Data, "feature_label", each Record.FieldOrDefault(Labels, [feature], [feature]), type text)
 				in
-					Data
+					WithLabel
 

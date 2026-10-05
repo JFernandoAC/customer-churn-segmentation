@@ -3,9 +3,9 @@
   "name": "77a99ee991a36a22bdc6",
   "position": {
     "x": 643,
-    "y": 455,
+    "y": 345,
     "z": 8000,
-    "height": 259,
+    "height": 369,
     "width": 622,
     "tabOrder": 8000
   },
@@ -23,11 +23,11 @@
                       "Entity": "feature_importance"
                     }
                   },
-                  "Property": "feature"
+                  "Property": "feature_label"
                 }
               },
-              "queryRef": "feature_importance.feature",
-              "nativeQueryRef": "feature",
+              "queryRef": "feature_importance.feature_label",
+              "nativeQueryRef": "feature_label",
               "active": true,
               "displayName": "Feature"
             }
@@ -110,7 +110,7 @@
                 "Entity": "feature_importance"
               }
             },
-            "Property": "feature"
+            "Property": "feature_label"
           }
         },
         "type": "Categorical"

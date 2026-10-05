@@ -128,6 +128,13 @@ table customer_scores
 		summarizeBy: none
 		sourceColumn: segment_order
 
+	column probability_band
+		dataType: double
+		formatString: 0%
+		lineageTag: 2aa01940-e164-4609-91db-ad1799c7aa3f
+		summarizeBy: none
+		sourceColumn: probability_band
+
 	partition customer_scores = m
 		mode: import
 		source =
@@ -135,9 +142,11 @@ table customer_scores
 					Source = PostgreSQL.Database("localhost:5433", "retail"),
 					Data = Source{[Schema = "public", Item = "customer_scores"]}[Data],
 					WithSegmentOrder = Table.AddColumn(Data, "segment_order", each List.PositionOf({"Champions", "Promising", "At risk", "Lost"}, [segment]) + 1, Int64.Type),
-					WithRiskOrder = Table.AddColumn(WithSegmentOrder, "risk_order", each List.PositionOf({"High", "Medium", "Low"}, [risk_level]) + 1, Int64.Type)
+					WithRiskOrder = Table.AddColumn(WithSegmentOrder, "risk_order", each List.PositionOf({"High", "Medium", "Low"}, [risk_level]) + 1, Int64.Type),
+					// 10-point bands for the histogram: 0.734 -> 0.7 (shown as 70%)
+					WithBand = Table.AddColumn(WithRiskOrder, "probability_band", each Number.RoundDown([churn_probability] * 10) / 10, type number)
 				in
-					WithRiskOrder
+					WithBand
 
 	annotation PBI_ResultType = Table
 

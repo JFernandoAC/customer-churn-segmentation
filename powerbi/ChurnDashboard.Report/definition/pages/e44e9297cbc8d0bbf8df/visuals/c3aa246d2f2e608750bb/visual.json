@@ -3,9 +3,9 @@
   "name": "c3aa246d2f2e608750bb",
   "position": {
     "x": 643,
-    "y": 455,
+    "y": 654,
     "z": 8000,
-    "height": 259,
+    "height": 60,
     "width": 309,
     "tabOrder": 8000
   },
@@ -59,7 +59,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Basic'"
+                  "Value": "'Dropdown'"
                 }
               }
             }

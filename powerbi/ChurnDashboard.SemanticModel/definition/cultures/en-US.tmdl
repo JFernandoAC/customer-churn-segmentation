@@ -306,6 +306,78 @@ cultureInfo en-US
 			          "ConceptualProperty": "feature"
 			        }
 			      },
+			      "State": "Generated"
+			    },
+			    "customer_scores.probability_band": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "probability_band"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Churn probability band": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.avg_order_value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "avg_order_value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Avg order value": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "customer_scores.tenure_days": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "customer_scores",
+			          "ConceptualProperty": "tenure_days"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Days as customer": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "feature_importance.feature_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "feature_importance",
+			          "ConceptualProperty": "feature_label"
+			        }
+			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {

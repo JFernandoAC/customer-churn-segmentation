@@ -113,6 +113,36 @@
                       "Entity": "customer_scores"
                     }
                   },
+                  "Property": "avg_order_value"
+                }
+              },
+              "queryRef": "customer_scores.avg_order_value",
+              "nativeQueryRef": "avg_order_value",
+              "displayName": "Avg order value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
+                  "Property": "tenure_days"
+                }
+              },
+              "queryRef": "customer_scores.tenure_days",
+              "nativeQueryRef": "tenure_days",
+              "displayName": "Days as customer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "customer_scores"
+                    }
+                  },
                   "Property": "orders_last_90d"
                 }
               },
@@ -169,6 +199,66 @@
                 }
               }
             }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnFormatting": [
+        {
+          "properties": {
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#f0a3a3'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#f0a3a3'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#898781'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "customer_scores.churn_probability"
           }
         }
       ]
@@ -284,6 +374,34 @@
               }
             },
             "Property": "distinct_products"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "actionlistavg_order_",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "avg_order_value"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "actionlisttenure_day",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "customer_scores"
+              }
+            },
+            "Property": "tenure_days"
           }
         },
         "type": "Categorical"
