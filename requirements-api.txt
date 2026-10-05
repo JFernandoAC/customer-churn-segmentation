@@ -1,0 +1,10 @@
+# Only what the API needs. scikit-learn, xgboost, numpy and pandas are pinned
+# to the versions used for training: a pickled model may not load in others.
+fastapi==0.142.2
+uvicorn==0.54.0
+pandas==3.0.6
+numpy==2.5.3
+scikit-learn==1.9.1
+# CPU-only build of xgboost: same code, without ~200 MB of GPU libraries.
+xgboost-cpu==3.4.1
+joblib==1.6.0
