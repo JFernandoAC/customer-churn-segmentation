@@ -1,0 +1,53 @@
+table confusion_matrix
+	lineageTag: c0f9ed97-6e0e-4506-8372-394ef24a3a2e
+
+	measure 'Test customers' = SUM(confusion_matrix[customers])
+		formatString: #,0
+		lineageTag: 69cd8124-a518-4ad5-86e7-bc80e3ec4fdc
+
+	column actual
+		dataType: string
+		lineageTag: fd78479e-debe-4b31-821e-05e6ffcfd91a
+		summarizeBy: none
+		sourceColumn: actual
+		sortByColumn: actual_order
+
+	column predicted
+		dataType: string
+		lineageTag: a1461d4e-0205-42b4-9816-859226219bc8
+		summarizeBy: none
+		sourceColumn: predicted
+		sortByColumn: predicted_order
+
+	column customers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 7e04fe25-16da-491b-b866-e421ced7d33c
+		summarizeBy: sum
+		sourceColumn: customers
+
+	column actual_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 7df8d11e-60ae-4d88-97d9-ab9820d1f8ce
+		summarizeBy: none
+		sourceColumn: actual_order
+
+	column predicted_order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 89c9b6fd-bff9-44d4-8c0d-d2d816828a31
+		summarizeBy: none
+		sourceColumn: predicted_order
+
+	partition confusion_matrix = m
+		mode: import
+		source =
+				let
+					Source = PostgreSQL.Database("localhost:5433", "retail"),
+					Data = Source{[Schema = "public", Item = "confusion_matrix"]}[Data]
+				in
+					Data
+

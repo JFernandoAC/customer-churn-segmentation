@@ -1,0 +1,25 @@
+table feature_importance
+	lineageTag: 81e54473-b97d-4d48-8952-38f71c4b4190
+
+	column feature
+		dataType: string
+		lineageTag: 108516bc-6d85-486b-9617-0c9d705fc8ef
+		summarizeBy: none
+		sourceColumn: feature
+
+	column mean_abs_shap
+		dataType: double
+		formatString: 0.000
+		lineageTag: b66f8b41-ab2d-42cf-9845-d139f557a9a6
+		summarizeBy: sum
+		sourceColumn: mean_abs_shap
+
+	partition feature_importance = m
+		mode: import
+		source =
+				let
+					Source = PostgreSQL.Database("localhost:5433", "retail"),
+					Data = Source{[Schema = "public", Item = "feature_importance"]}[Data]
+				in
+					Data
+

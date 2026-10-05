@@ -53,14 +53,15 @@ many orders, high spend, recent activity and a varied basket keep customers.
 
 ## Dashboard
 
-A three-page Power BI report puts this in front of the business: who the
-customers are, who is at risk, and an action list of high-risk customers sorted
-by how much they are worth.
+A four-page Power BI report puts this in front of the business: who the
+customers are, who is at risk, an action list of high-risk customers sorted by
+how much they are worth, and how good the model is.
 
 ![Churn risk page](reports/figures/powerbi_churn_risk.png)
 
 More pages: [Segments](reports/figures/powerbi_segments.png) ·
-[Action list](reports/figures/powerbi_action_list.png)
+[Action list](reports/figures/powerbi_action_list.png) ·
+[Model](reports/figures/powerbi_model.png)
 
 ---
 
@@ -89,7 +90,7 @@ UCI Excel ─► CSV ─► PostgreSQL (Docker) ─► SQL cleaning view
 | 8 | `src/explain_model.py` | SHAP global and per-customer explanations |
 | 9 | `src/score_customers.py` | Scores current customers into Postgres for Power BI |
 | 10 | `api/` | FastAPI service with the trained model |
-| 11 | `powerbi/ChurnDashboard.pbip` | Power BI dashboard (3 pages) reading from Postgres |
+| 11 | `powerbi/ChurnDashboard.pbip` | Power BI dashboard (4 pages) reading from Postgres |
 
 ### Churn definition
 

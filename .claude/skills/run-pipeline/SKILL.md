@@ -15,13 +15,13 @@ Todos los comandos desde la raíz del proyecto, con el venv activo
 | 3 | `python src/load_to_postgres.py` | imprime `clean_transactions has 776,583 rows` |
 | 4 | `python src/segment_customers.py` | tabla de 4 segmentos + `reports/figures/choose_k.png` |
 | 5 | `python src/build_features.py` | ~4,300 clientes, churn ~49% |
-| 6 | `python src/train_model.py` | métricas de 2 modelos, guarda `models/churn_model.joblib` |
-| 7 | `python src/explain_model.py` | 3 PNG `shap_*.png` en `reports/figures/` |
+| 6 | `python src/train_model.py` | métricas de 2 modelos, guarda `models/churn_model.joblib` y las tablas `model_metrics` / `confusion_matrix` |
+| 7 | `python src/explain_model.py` | 3 PNG `shap_*.png` en `reports/figures/` y la tabla `feature_importance` |
 | 8 | `python src/score_customers.py` | tabla `customer_scores` + cruce segmento × riesgo |
 | 9 | `pytest` | todas las pruebas pasan |
 | 10 | `docker compose up -d --build api` | `curl http://localhost:8000/health` → `{"status":"ok"}` |
 | 11 | `mlflow ui --backend-store-uri sqlite:///mlflow.db` | http://localhost:5000 muestra 2 corridas |
-| 12 | Abrir `powerbi/ChurnDashboard.pbip` → *Actualizar* | 3 páginas; "Churn risk" muestra 746 clientes de riesgo alto |
+| 12 | Abrir `powerbi/ChurnDashboard.pbip` → *Actualizar* | 4 páginas; "Churn risk" muestra 746 clientes de riesgo alto y "Model" ROC-AUC 0.758 |
 
 Los pasos 6-8 y 10 dependen del anterior: si reentrenas, reconstruye la API
 (`--build`) para que copie el modelo nuevo.

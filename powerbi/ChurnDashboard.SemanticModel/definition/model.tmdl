@@ -6,12 +6,15 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["customer_segments","customer_scores"]
+annotation PBI_QueryOrder = ["customer_segments","customer_scores","model_metrics","confusion_matrix","feature_importance"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table customer_segments
 ref table customer_scores
+ref table model_metrics
+ref table confusion_matrix
+ref table feature_importance
 
 ref cultureInfo en-US
 

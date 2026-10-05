@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "77a99ee991a36a22bdc6",
+  "position": {
+    "x": 643,
+    "y": 455,
+    "z": 8000,
+    "height": 259,
+    "width": 622,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "feature_importance"
+                    }
+                  },
+                  "Property": "feature"
+                }
+              },
+              "queryRef": "feature_importance.feature",
+              "nativeQueryRef": "feature",
+              "active": true,
+              "displayName": "Feature"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "feature_importance"
+                        }
+                      },
+                      "Property": "mean_abs_shap"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(feature_importance.mean_abs_shap)",
+              "nativeQueryRef": "Sum of mean_abs_shap",
+              "displayName": "Mean |SHAP value|"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "feature_importance"
+                      }
+                    },
+                    "Property": "mean_abs_shap"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'What the model relies on (mean |SHAP value|)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8ad85af52294f8774719",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "feature_importance"
+              }
+            },
+            "Property": "feature"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "db1b09ab570c2727ff5d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "feature_importance"
+                  }
+                },
+                "Property": "mean_abs_shap"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

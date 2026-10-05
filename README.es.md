@@ -55,14 +55,15 @@ retienen al cliente.
 
 ## Dashboard
 
-Un reporte de Power BI de tres páginas lleva esto al negocio: quiénes son los
-clientes, quién está en riesgo y una lista de acción con los clientes de riesgo
-alto ordenados por cuánto valen.
+Un reporte de Power BI de cuatro páginas lleva esto al negocio: quiénes son los
+clientes, quién está en riesgo, una lista de acción con los clientes de riesgo
+alto ordenados por cuánto valen y qué tan bueno es el modelo.
 
 ![Página de riesgo de abandono](reports/figures/powerbi_churn_risk.png)
 
 Más páginas: [Segmentos](reports/figures/powerbi_segments.png) ·
-[Lista de acción](reports/figures/powerbi_action_list.png)
+[Lista de acción](reports/figures/powerbi_action_list.png) ·
+[Modelo](reports/figures/powerbi_model.png)
 
 ---
 
@@ -91,7 +92,7 @@ Excel de UCI ─► CSV ─► PostgreSQL (Docker) ─► vista SQL de limpieza
 | 8 | `src/explain_model.py` | Explicaciones SHAP globales y por cliente |
 | 9 | `src/score_customers.py` | Califica a los clientes actuales en Postgres para Power BI |
 | 10 | `api/` | Servicio FastAPI con el modelo entrenado |
-| 11 | `powerbi/ChurnDashboard.pbip` | Dashboard de Power BI (3 páginas) que lee de Postgres |
+| 11 | `powerbi/ChurnDashboard.pbip` | Dashboard de Power BI (4 páginas) que lee de Postgres |
 
 ### Definición de churn
 

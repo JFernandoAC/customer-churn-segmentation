@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "6838793a3d10a12bce22",
+  "position": {
+    "x": 643,
+    "y": 190,
+    "z": 7000,
+    "height": 260,
+    "width": 622,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "confusion_matrix"
+                    }
+                  },
+                  "Property": "predicted"
+                }
+              },
+              "queryRef": "confusion_matrix.predicted",
+              "nativeQueryRef": "predicted",
+              "active": true,
+              "displayName": "Predicted"
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "confusion_matrix"
+                    }
+                  },
+                  "Property": "actual"
+                }
+              },
+              "queryRef": "confusion_matrix.actual",
+              "nativeQueryRef": "actual",
+              "active": true,
+              "displayName": "Actual"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "confusion_matrix"
+                    }
+                  },
+                  "Property": "Test customers"
+                }
+              },
+              "queryRef": "confusion_matrix.Test customers",
+              "nativeQueryRef": "Test customers"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Confusion matrix (XGBoost, 862 test customers)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d0a96ed0aaec9ac9e98f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "confusion_matrix"
+              }
+            },
+            "Property": "actual"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "518da35d217e5834f85e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "confusion_matrix"
+              }
+            },
+            "Property": "predicted"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "95d2c08fc6a5d40b043f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "confusion_matrix"
+              }
+            },
+            "Property": "Test customers"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

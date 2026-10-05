@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "0ade6e5bdf89c49c51b1",
+  "position": {
+    "x": 957,
+    "y": 57,
+    "z": 5000,
+    "height": 128,
+    "width": 308,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "model_metrics"
+                    }
+                  },
+                  "Property": "Selected precision"
+                }
+              },
+              "queryRef": "model_metrics.Selected precision",
+              "nativeQueryRef": "Selected precision"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Churn alerts that were right (precision)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "33ff769a82ff17c41292",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "model_metrics"
+              }
+            },
+            "Property": "Selected precision"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

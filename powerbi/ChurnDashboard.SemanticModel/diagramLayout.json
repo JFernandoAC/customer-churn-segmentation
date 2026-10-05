@@ -10,7 +10,7 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
+            "x": 852,
             "y": 0
           },
           "nodeIndex": "customer_scores",
@@ -23,13 +23,52 @@
         },
         {
           "location": {
-            "x": 284,
+            "x": 1136,
             "y": 0
           },
           "nodeIndex": "customer_segments",
           "nodeLineageTag": "25699d89-a5bd-4877-b9f6-fcc100e4cb76",
           "size": {
             "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 38
+          },
+          "nodeIndex": "confusion_matrix",
+          "nodeLineageTag": "c0f9ed97-6e0e-4506-8372-394ef24a3a2e",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 284,
+            "y": 86
+          },
+          "nodeIndex": "feature_importance",
+          "nodeLineageTag": "81e54473-b97d-4d48-8952-38f71c4b4190",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 2
+          },
+          "nodeIndex": "model_metrics",
+          "nodeLineageTag": "d497cb7c-692a-4602-b19d-8b7fe26fcd11",
+          "size": {
+            "height": 296,
             "width": 234
           },
           "zIndex": 0

@@ -151,6 +151,32 @@
           }
         ]
       }
+    },
+    "pivotTable": {
+      "*": {
+        "values": [
+          {
+            "fontSize": 12
+          }
+        ],
+        "columnHeaders": [
+          {
+            "fontSize": 11,
+            "bold": true
+          }
+        ],
+        "rowHeaders": [
+          {
+            "fontSize": 11,
+            "bold": true
+          }
+        ],
+        "total": [
+          {
+            "fontSize": 11
+          }
+        ]
+      }
     }
   }
 }

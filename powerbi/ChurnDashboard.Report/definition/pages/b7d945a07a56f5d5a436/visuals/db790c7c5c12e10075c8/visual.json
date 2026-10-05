@@ -1,0 +1,71 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "db790c7c5c12e10075c8",
+  "position": {
+    "x": 15,
+    "y": 57,
+    "z": 2000,
+    "height": 128,
+    "width": 309,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "model_metrics"
+                    }
+                  },
+                  "Property": "Selected test ROC-AUC"
+                }
+              },
+              "queryRef": "model_metrics.Selected test ROC-AUC",
+              "nativeQueryRef": "Selected test ROC-AUC"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'XGBoost test ROC-AUC'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "daa1f3394ee53ea2f70a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "model_metrics"
+              }
+            },
+            "Property": "Selected test ROC-AUC"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

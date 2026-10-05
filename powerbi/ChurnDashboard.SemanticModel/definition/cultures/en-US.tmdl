@@ -214,6 +214,111 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "model_metrics.metric": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "model_metrics",
+			          "ConceptualProperty": "metric"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Metric": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "model_metrics.model": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "model_metrics",
+			          "ConceptualProperty": "model"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Model": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "confusion_matrix.actual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "confusion_matrix",
+			          "ConceptualProperty": "actual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "confusion_matrix.predicted": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "confusion_matrix",
+			          "ConceptualProperty": "predicted"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Predicted": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "feature_importance.feature": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "feature_importance",
+			          "ConceptualProperty": "feature"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Feature": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  }
 			}
