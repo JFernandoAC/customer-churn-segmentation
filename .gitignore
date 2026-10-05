@@ -17,6 +17,12 @@ __pycache__/
 .ipynb_checkpoints/
 .pytest_cache/
 
+# Claude Code worktrees (temporary copies of the repo)
+.claude/worktrees/
+
 # Power BI: local user settings and data cache (data comes from Postgres)
 powerbi/**/.pbi/localSettings.json
-powerbi/**/.pbi/cache.abf
+powerbi/**/.pbi/cache.abf*
+
+# Local working instructions, not part of the portfolio
+CLAUDE.md
